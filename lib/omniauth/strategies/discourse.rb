@@ -7,8 +7,8 @@ module OmniAuth
       include OmniAuth::Strategy
 
       args [:sso_secret, :sso_url]
-      option :sso_secret, Rails.application.credentials.discourse[:sso_secret]
-      option :sso_url, nil
+      # option :sso_secret, s
+      # option :sso_url, nil
 
       attr_reader :user_info
 
