@@ -17,6 +17,9 @@ Then add the following line to your OmniAuth initializer:
     provider :discourse,
       sso_url: "https://forum.example.com/session/sso_provider",
       sso_secret: Rails.application.secrets.sso_secret
+
+Or, if you are using Rails 5.2 credientials, it may be `Rails.application.credentials.discourse[:sso_secret]` or wherever you have saved your SSO secret.
+
 Make sure you set the URL to point to your forum, and the secret to the secret generated earlier.
 
 That's it!
@@ -28,7 +31,7 @@ The following information about each user will be available in the OmniAuth auth
     uid do
       user_info[:external_id]
     end
-    
+
     info do
       {
         "name" => user_info[:name],
@@ -36,7 +39,7 @@ The following information about each user will be available in the OmniAuth auth
         "nickname" => user_info[:username]
       }
     end
-    
+
     extra do
       {
         "admin" => user_info[:admin] == "true",
